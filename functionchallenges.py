@@ -111,17 +111,22 @@ def analyze_word(word):
     vowelCount = 0
     consanentCount = 0
 
-    Vowels = "aeiou"
+    Vowels = "aeiouAEIOU"
 
-    for i in range(len(word)):
-        if word[i] in Vowels:
-            vowelCount += 1
-        else:
-            consanentCount += 1
-    return f"Contains {vowelCount} vowels and {consanentCount} consanents"
+    if type(word) != str:
+        print("That isn't a word lol")
+        return 0
+
+        for i in range(len(word)):
+            if word[i] in Vowels:
+                vowelCount += 1
+            elif word[i].isalpha():
+                consanentCount += 1
+
+    return f"Ur word has {vowelCount} vowels and {consanentCount} consanents"
 
 word1 = str(input("random word in all lowercases:"))
-result = f"here {analyze_word(word1)}"
+result = analyze_word(word1)
 
 print(result)
 
